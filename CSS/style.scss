@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,900|Slabo+27px');
+$plava:#3496d8;
+$tamnoSiva:#8f8f8f;
+$bela: #fff;
+$padding: 50px;
+$transition: 0.4s linear;
+
+// Mixins
+@mixin flex($direction:row, $justify: space-between, $align: center) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin btn($padding: 10px 50px, $border: none, $font:16px){
+    padding: $padding;
+    border: $border;
+    font-size: .8rem;
+    background: $plava;
+    color: $bela;
+    transition: $transition;
+    border-radius: 15px;
+    &:hover{
+        background: $bela;
+        color: $plava;
+        cursor: pointer;
+        // border: 1px solid $plava;
+        outline: 1px solid $plava;
+    }
+}
+// Basics
+* {  
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 16px;
+    font-family: 'Slabo 27px', serif;
+    color: $tamnoSiva;
+    line-height: 1.5;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Railway', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+img{
+    width: 100%;
+}
+.container{
+    width: 90%;
+    margin: auto;
+}
+// header
+header{
+    background-image: url(/img/header.jpg);
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+// Nav
+    nav{
+        @include flex;
+        padding: 20px 50px 0 50px;
+        .logo{
+            color: $bela;
+            font-size: 2rem;
+            text-shadow: 0 0 5px black;
+        }
+        ul{
+            @include flex;
+            li{
+                a{
+                    color: $bela;
+                    text-transform: uppercase;
+                    margin-left: 60px;
+                    letter-spacing: 2px;
+                    text-shadow: 0 0 5px black;
+                    &:hover{
+                        color: black;
+                        transition: $transition;
+                    }
+                }
+            }
+        }
+    }
+    hgroup{
+        text-align: center;
+        @include flex($direction: column, $justify: center, $align: center);
+        color: $bela;
+        height: 90vh;
+        h2{ 
+            font-size: 5rem;
+            text-shadow: 3px 3px 16px black;
+        }
+        h4{
+            font-size: 2rem;
+            text-shadow: 0 0 10px black;
+        }
+        h5{
+            font-size: 1.1rem;
+            padding-top: 20px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px black;
+        }
+    }
+}
+.intro{
+    @include flex;
+    .col{
+        flex: 0 0 50%;
+        padding:$padding;
+        h2{
+            font-size: 3rem;
+            color: $plava;
+        }
+    }
+    article{
+        
+        &:last-child{
+            @include flex(column,space-between,flex-start );
+            height: 100%;
+            h2, p, .btn{
+                margin-bottom: 20px;
+            }
+            .btn{
+                @include btn;
+            }
+
+        }
+    }
+}
+.wrapp{
+    width: 100%;
+    margin: auto;
+    @include flex;
+    article{
+        @include flex(column,space-between,space-between);
+        padding: 20px 20px;
+        text-align: center;
+        width: 30%;
+        height: 100%;
+        margin: 50px auto;
+        i{
+            font-size: 3rem;
+            
+        }
+        h4, i{
+            color: $plava;
+            margin-bottom: 10px;
+        }
+        p{
+            text-align: justify;
+        }
+    }
+}
+.works{
+    @include flex;
+    padding: $padding;
+    justify-content: center;
+    h2{
+        text-align: center;
+        color: $plava;
+        font-size: 3rem;
+    }
+    p{
+        font-size: 2.1rem;
+        text-align: justify;
+        margin-bottom: 50px;
+    }
+    .row{
+        @include flex;
+        flex: 0 0 32%;
+        article{
+            width: 100%;
+            text-align: center;
+            position: relative;
+            @include flex($justify: center, $align: center);
+            color: $bela;
+            font-size: 1rem;
+            margin:10px 10px;
+            text-shadow: 0 0 5px black;
+            h4{
+                background: rgba($plava,.5);
+                padding: 10px 20px;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+        .img1{
+            background-image: url(/img/works1.jpg);
+            background-position: center;
+            background-size: cover;
+            height: 600px;
+        }
+        .img2{
+            background-image: url(/img/works2.jpg);
+            background-position: center;
+            background-size: cover;
+            height: 600px;
+        }
+        .img3{
+            background-image: url(/img/works3.jpg);
+            background-position: center;
+            background-size: cover;
+            height: 600px;
+        }
+        .img4{
+            background-image: url(/img/works4.jpg);
+            background-position: center;
+            background-size: cover;
+            height: 600px;
+        }
+        .img5{
+            background-image: url(/img/works5.jpg);
+            background-position: center;
+            background-size: cover;
+            height: 600px;
+        }
+        .img6{
+            background-image: url(/img/works6.jpg);
+            background-position: center;
+            background-size: cover;
+            height: 600px;
+        }
+    }
+}
+footer{
+    background-image: url(/img/footer.jpg);
+    background-position: center;
+    background-size: cover;
+    color: $bela;
+    .container{
+        width: 80%;
+        margin: auto;
+        @include flex($direction:column,$align: flex-start);
+        h2{
+            font-size: 4rem;
+            line-height: 4rem;
+        }
+        p{
+            padding-bottom: 10px;
+        }
+        hr{
+            background: $bela;
+            width: 70%;
+            text-align: center;
+            border: none;
+            height: 2px;
+            margin-bottom: 30px;
+        }
+        article{
+            margin-bottom: 20px;
+            
+        }
+    }
+}
+
